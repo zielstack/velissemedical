@@ -1,0 +1,1762 @@
+/* ==========================================================================
+   VELISSE MEDICAL — ULTRA-PREMIUM EDITORIAL CORPORATE STYLESHEET
+   Aesthetics: Luxury Healthcare & Medical Device Architecture
+   Palette: Deep Executive Navy, Emerald/Teal Glow, Soft Frost White, Clean Gold
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Palette */
+  --navy-deep: #061325;
+  --navy-main: #0A1E36;
+  --navy-surface: #0E2746;
+  --navy-muted: #1B3557;
+  --navy-border: #23436B;
+  
+  --teal-primary: #0B7A75;
+  --teal-hover: #08635F;
+  --teal-vivid: #0EA5E9;
+  --teal-cyan: #06B6D4;
+  --teal-glow: rgba(11, 122, 117, 0.35);
+  --teal-soft: #E6F5F4;
+  --teal-tint: #F0F9F8;
+  --teal-light: #CCECE9;
+  
+  --gold-accent: #C5A880;
+  --gold-soft: #FBF7F0;
+  
+  --text-dark: #0A1E36;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  
+  --bg-white: #FFFFFF;
+  --bg-warm-light: #FBFDFD;
+  --bg-light: #F8FAFC;
+  --bg-subtle: #F1F5F9;
+  
+  --border-subtle: #E2E8F0;
+  --border-light: #EDF2F7;
+  --border-teal: rgba(11, 122, 117, 0.2);
+  
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  
+  /* Dimensions & Spacing */
+  --max-w: 1280px;
+  --max-w-narrow: 1040px;
+  --header-h: 86px;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 24px;
+  --r-pill: 9999px;
+  
+  /* Elevating Shadows */
+  --shadow-subtle: 0 2px 8px rgba(10, 30, 54, 0.04);
+  --shadow-card: 0 10px 30px -5px rgba(10, 30, 54, 0.06), 0 4px 12px -2px rgba(10, 30, 54, 0.03);
+  --shadow-hover: 0 20px 40px -10px rgba(10, 30, 54, 0.12), 0 8px 16px -4px rgba(11, 122, 117, 0.08);
+  --shadow-luxury: 0 25px 50px -12px rgba(6, 19, 37, 0.25);
+  --shadow-btn: 0 10px 25px -4px rgba(11, 122, 117, 0.4);
+  
+  /* Transitions */
+  --trans-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Core Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+::selection {
+  background-color: var(--teal-primary);
+  color: #FFFFFF;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--trans-fast);
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+.container-narrow {
+  max-width: var(--max-w-narrow);
+}
+
+.section-padding {
+  padding: 120px 0;
+  position: relative;
+}
+
+.bg-light {
+  background-color: var(--bg-light);
+}
+
+.bg-white {
+  background-color: var(--bg-white);
+}
+
+.bg-navy {
+  background-color: var(--navy-deep);
+  color: #FFFFFF;
+}
+
+/* Subtle background accent grid/noise */
+.texture-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(11, 122, 117, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography & Badges
+   -------------------------------------------------------------------------- */
+.kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: var(--teal-tint);
+  border: 1px solid var(--border-teal);
+  color: var(--teal-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 20px;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(11, 122, 117, 0.2);
+  display: inline-block;
+  animation: pulse-dot 2.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(11, 122, 117, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(11, 122, 117, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(11, 122, 117, 0); }
+}
+
+.section-title {
+  font-family: var(--font-sans);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--navy-main);
+  margin-bottom: 24px;
+}
+
+.section-title .serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--teal-primary);
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 70px auto;
+}
+
+.section-header-left {
+  margin-bottom: 60px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all var(--trans-smooth);
+  border: none;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-teal {
+  background: linear-gradient(135deg, #0D827C 0%, #0B7A75 100%);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-teal:hover {
+  background: linear-gradient(135deg, #0F968F 0%, #086661 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -4px rgba(11, 122, 117, 0.5);
+  color: #FFFFFF;
+}
+
+.btn-teal-outline {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--teal-primary);
+  border: 1.5px solid var(--teal-primary);
+  backdrop-filter: blur(8px);
+}
+
+.btn-teal-outline:hover {
+  background-color: var(--teal-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn);
+}
+
+.btn-nav {
+  padding: 11px 26px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & Navigation (Clean White, Glassmorphic Scroll)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1000;
+  transition: all var(--trans-smooth);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.site-header.scrolled {
+  box-shadow: 0 10px 30px rgba(10, 30, 54, 0.08);
+  height: 74px;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+/* Wordmark */
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  user-select: none;
+}
+
+.brand-icon-plus {
+  color: var(--teal-primary);
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1;
+  margin-right: 8px;
+  transform: translateY(-1px);
+  transition: transform var(--trans-fast);
+}
+
+.brand-link:hover .brand-icon-plus {
+  transform: translateY(-1px) rotate(90deg);
+}
+
+.brand-name {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--navy-main);
+}
+
+.brand-suffix {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--teal-primary);
+  margin-left: 5px;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--navy-main);
+  position: relative;
+  padding: 8px 0;
+  transition: color var(--trans-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--teal-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2.5px;
+  border-radius: var(--r-pill);
+  background-color: var(--teal-primary);
+  transition: width var(--trans-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--navy-main);
+  z-index: 1001;
+}
+
+.mobile-toggle svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   6. Homepage Hero (With Video Background)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  margin-top: var(--header-h);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #061325;
+}
+
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-video,
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  filter: contrast(1.06) brightness(0.96);
+}
+
+/* Luxury Multi-Stop Soft White Frost Overlay (Left-Weighted to Keep Right Medical Equipment Visible) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.94) 28%,
+    rgba(255, 255, 255, 0.72) 44%,
+    rgba(255, 255, 255, 0.22) 62%,
+    rgba(255, 255, 255, 0) 78%
+  );
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 620px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.hero-title {
+  font-family: var(--font-sans);
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--navy-main);
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.hero-title-italic {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--teal-primary);
+  font-size: 64px;
+  margin-top: 6px;
+  letter-spacing: -0.015em;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 34px;
+  max-width: 580px;
+  font-weight: 450;
+  text-align: left;
+}
+
+.hero-tags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+
+.hero-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-main);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.hero-tag-item svg {
+  color: var(--teal-primary);
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Floating Contact Button */
+.floating-contact-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0D827C 0%, #0B7A75 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(11, 122, 117, 0.45);
+  z-index: 999;
+  cursor: pointer;
+  transition: transform var(--trans-smooth), box-shadow var(--trans-smooth);
+}
+
+.floating-contact-btn:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 16px 35px rgba(11, 122, 117, 0.55);
+}
+
+.floating-contact-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   7. Section 1: About Velisse Medical (High-End Editorial Revamp)
+   -------------------------------------------------------------------------- */
+.about-editorial-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-narrative .lead-text {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--navy-main);
+  margin-bottom: 22px;
+}
+
+.about-narrative p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Quote module */
+.editorial-callout-quote {
+  position: relative;
+  margin: 32px 0;
+  padding: 24px 30px 24px 36px;
+  background: linear-gradient(90deg, var(--teal-tint) 0%, rgba(255,255,255,0.4) 100%);
+  border-left: 4px solid var(--teal-primary);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+.editorial-callout-quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--navy-main);
+  margin: 0;
+}
+
+/* Premium Visual Frame on Right */
+.about-visual-frame {
+  position: relative;
+}
+
+.about-main-media {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-luxury);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.about-main-media img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--trans-slow);
+}
+
+.about-visual-frame:hover .about-main-media img {
+  transform: scale(1.03);
+}
+
+/* Editorial Capability Pillars — Pure Typography, No Cards, No Emojis */
+.about-editorial-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.about-pillar-item {
+  position: relative;
+  padding-top: 18px;
+  border-top: 2px solid var(--teal-primary);
+}
+
+.pillar-heading {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy-main);
+  line-height: 1.35;
+  margin-bottom: 10px;
+  letter-spacing: -0.015em;
+}
+
+.pillar-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Section 2: Core Business (Editorial Showcase)
+   -------------------------------------------------------------------------- */
+.business-list {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.business-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.business-row.reversed {
+  direction: rtl;
+}
+
+.business-row.reversed > * {
+  direction: ltr;
+}
+
+.business-media-frame {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-luxury);
+  border: 1px solid var(--border-subtle);
+  background-color: #F1F5F9;
+}
+
+.business-media-frame img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  transition: transform var(--trans-slow);
+}
+
+.business-media-frame:hover img {
+  transform: scale(1.04);
+}
+
+.business-media-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(6, 19, 37, 0.88);
+  backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.business-content-wrap {
+  padding: 10px 0;
+}
+
+.business-index-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.business-heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy-main);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.business-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.business-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.business-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.feature-check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--teal-tint);
+  border: 1px solid var(--border-teal);
+  color: var(--teal-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Section 3: Maya Miller — Senior Partner
+   -------------------------------------------------------------------------- */
+.executive-hero {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* Executive Portrait Gallery (Dual-Photo Composition, No Awkward Circles) */
+.executive-gallery {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.executive-main-frame {
+  position: relative;
+  flex: 1;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-luxury);
+  border: 1px solid var(--border-subtle);
+  background: #FFFFFF;
+}
+
+.executive-main-img {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--trans-slow);
+}
+
+.executive-gallery:hover .executive-main-img {
+  transform: scale(1.02);
+}
+
+.executive-secondary-frame {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(10, 30, 54, 0.18);
+  border: 3px solid #FFFFFF;
+  background: #FFFFFF;
+  margin-bottom: 24px;
+  margin-left: -50px;
+  z-index: 2;
+  transition: transform var(--trans-smooth);
+}
+
+.executive-gallery:hover .executive-secondary-frame {
+  transform: translateY(-6px);
+}
+
+.executive-secondary-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.executive-secondary-caption {
+  padding: 12px 14px;
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+  color: var(--navy-main);
+}
+
+.caption-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-primary);
+  margin-bottom: 3px;
+}
+
+.caption-title {
+  display: block;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--navy-main);
+  font-weight: 600;
+}
+
+.executive-bio-heading {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--navy-main);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.executive-bio-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--teal-primary);
+  margin-bottom: 26px;
+}
+
+.executive-bio-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.executive-quote {
+  background: linear-gradient(135deg, var(--teal-tint) 0%, #FFFFFF 100%);
+  border-left: 4px solid var(--teal-primary);
+  padding: 26px 30px;
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  margin: 32px 0;
+  box-shadow: var(--shadow-subtle);
+}
+
+.executive-quote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--navy-main);
+  margin-bottom: 10px;
+}
+
+.executive-quote cite {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-primary);
+  font-style: normal;
+}
+
+.executive-focus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.focus-item {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 20px;
+}
+
+.focus-item::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--teal-primary);
+  font-size: 12px;
+  top: 1px;
+}
+
+.focus-item strong {
+  color: var(--navy-main);
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   10. Section 4: Education & Qualifications (Cardless, Icon-free Editorial Grid)
+   -------------------------------------------------------------------------- */
+.education-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.education-item {
+  position: relative;
+  padding-top: 22px;
+  border-top: 2px solid var(--teal-primary);
+}
+
+.edu-degree {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--navy-main);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.edu-institution {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 12px;
+}
+
+.edu-detail {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   11. Section 5: Leadership Philosophy (Abstract Corporate Architecture Background)
+   -------------------------------------------------------------------------- */
+.leadership-section {
+  position: relative;
+  background-color: #FFFFFF;
+  background-image: url('../images/Futuristic Teal Glass Architecture.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.leadership-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.28) 40%,
+    rgba(255, 255, 255, 0.28) 70%,
+    rgba(255, 255, 255, 0.58) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.leadership-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.leadership-section .kicker-badge {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 8px rgba(10, 30, 54, 0.06);
+}
+
+.leadership-section .section-title {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
+}
+
+.leadership-section .section-subtitle {
+  color: var(--navy-main);
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85);
+}
+
+.leadership-editorial-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.leadership-editorial-item {
+  position: relative;
+  padding-top: 24px;
+  border-top: 2.5px solid var(--teal-primary);
+}
+
+.leadership-index {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  margin-bottom: 12px;
+  display: block;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+.leadership-editorial-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy-main);
+  margin-bottom: 16px;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+.leadership-editorial-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #0A1E36;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   12. Section 6: Areas of Expertise (Cardless & Icon-Free Capability Matrix)
+   -------------------------------------------------------------------------- */
+.expertise-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+}
+
+.expertise-editorial-item {
+  position: relative;
+  padding-top: 20px;
+  border-top: 2px solid var(--teal-primary);
+}
+
+.expertise-index {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--teal-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.expertise-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy-main);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.expertise-desc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   13. Section 7: Healthcare Without Borders (Philanthropy)
+   -------------------------------------------------------------------------- */
+.philanthropy-wrapper {
+  background: var(--bg-white);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.philanthropy-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: stretch;
+}
+
+.philanthropy-content {
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.philanthropy-title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--navy-main);
+  letter-spacing: -0.02em;
+}
+
+.philanthropy-title-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--teal-primary);
+}
+
+.philanthropy-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.philanthropy-text strong {
+  color: var(--navy-main);
+  font-weight: 700;
+}
+
+.philanthropy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.ph-stat-num {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--teal-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.ph-stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.philanthropy-media {
+  position: relative;
+  min-height: 480px;
+  background: var(--bg-light);
+  overflow: hidden;
+}
+
+.philanthropy-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   14. Section 8: Mission & Corporate Contact
+   -------------------------------------------------------------------------- */
+.mission-banner {
+  background: linear-gradient(135deg, var(--teal-tint) 0%, #FFFFFF 100%);
+  border: 1.5px solid var(--border-teal);
+  border-radius: var(--r-lg);
+  padding: 56px 48px;
+  text-align: center;
+  margin-bottom: 80px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.mission-kicker {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-primary);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.mission-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.45;
+  color: var(--navy-main);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Executive Consultation Channels */
+/* Executive Consultation & Ledger Architecture */
+.contact-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-editorial-narrative {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+
+.contact-editorial-heading {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--navy-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+.contact-editorial-intro {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.75;
+  color: var(--navy-main);
+  margin-bottom: 18px;
+}
+
+.contact-editorial-body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.contact-governance-callout {
+  padding: 24px 28px;
+  background: var(--bg-warm-light);
+  border-left: 3px solid var(--teal-primary);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  border-top: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.contact-location-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 28px;
+  background: var(--bg-warm-light);
+  border-left: 3px solid var(--teal-primary);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  border-top: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-top: 16px;
+}
+
+.contact-location-callout .location-icon {
+  color: var(--teal-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-location-callout .location-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-primary);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.contact-location-callout .location-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy-main);
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.gov-title {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--teal-primary);
+  margin-bottom: 8px;
+}
+
+.gov-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Right Column: Ledger Rows */
+.contact-directory-ledger {
+  display: flex;
+  flex-direction: column;
+}
+
+.directory-ledger-row {
+  padding: 30px 0;
+  border-top: 1px solid var(--border-subtle);
+  transition: all var(--trans-fast);
+}
+
+.directory-ledger-row:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.directory-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.directory-index {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--teal-primary);
+}
+
+.directory-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.directory-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy-main);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.directory-summary {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.directory-channel {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.channel-type {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.channel-address {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--teal-primary);
+  text-decoration: none;
+  transition: color var(--trans-fast);
+}
+
+a.channel-address:hover {
+  color: var(--teal-hover);
+  text-decoration: underline;
+}
+
+.channel-address.text-dark {
+  color: var(--navy-main);
+}
+
+/* --------------------------------------------------------------------------
+   15. Site Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--navy-deep);
+  color: #FFFFFF;
+  padding: 80px 0 35px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr;
+  gap: 52px;
+  margin-bottom: 60px;
+}
+
+.footer-brand-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #94A3B8;
+  margin-top: 18px;
+  max-width: 320px;
+}
+
+.footer-address-block {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 320px;
+}
+
+.footer-address-label {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--teal-light);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.footer-address-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #CBD5E1;
+  font-style: normal;
+}
+
+.footer-col-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  margin-bottom: 22px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: #94A3B8;
+  transition: all var(--trans-fast);
+}
+
+.footer-links a:hover {
+  color: var(--teal-light);
+  padding-left: 6px;
+}
+
+.footer-compliance-notice {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748B;
+}
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #64748B;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   16. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .hero-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  
+  .hero-content {
+    max-width: 560px;
+  }
+
+  .hero-title {
+    font-size: 50px;
+  }
+  
+  .hero-title-italic {
+    font-size: 52px;
+  }
+  
+  .section-title {
+    font-size: 36px;
+  }
+  
+  .about-editorial-grid,
+  .business-row {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .contact-editorial-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .contact-editorial-narrative {
+    position: static;
+  }
+  
+  .philanthropy-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .business-row.reversed {
+    direction: ltr;
+  }
+  
+  .education-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-editorial-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .leadership-editorial-row,
+  .expertise-editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 74px;
+  }
+  
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  .container {
+    padding: 0 24px;
+  }
+  
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-h));
+    background-color: #FFFFFF;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+    gap: 24px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+    transform: translateX(-100%);
+    transition: transform var(--trans-smooth);
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+  
+  .nav-link {
+    font-size: 16px;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .header-cta-group .btn-nav {
+    display: none;
+  }
+  
+  .hero-container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+  
+  .hero-title-italic {
+    font-size: 40px;
+  }
+  
+  .hero-description {
+    font-size: 16px;
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.94) 55%,
+      rgba(255, 255, 255, 0.88) 100%
+    );
+  }
+  
+  .executive-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .executive-gallery {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .executive-secondary-frame {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  
+  .executive-secondary-img {
+    height: 240px;
+  }
+  
+  .about-editorial-pillars,
+  .education-editorial-grid,
+  .leadership-editorial-row,
+  .expertise-editorial-grid,
+  .philanthropy-stats,
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-section {
+    background-position: 70% center;
+  }
+  
+  .mission-quote {
+    font-size: 22px;
+  }
+  
+  .philanthropy-content {
+    padding: 36px 24px;
+  }
+  
+  .philanthropy-media {
+    min-height: 280px;
+  }
+}
